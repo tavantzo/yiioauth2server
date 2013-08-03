@@ -1,0 +1,21 @@
+{
+    "name": "codejunkienet/yii-oauth2-server",
+    "description": "Yii module for implementing a oauth2 server.",
+    "keywords": ["yii", "oauth2", "server"],
+    "type": "library",
+    "licence": "MIT",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Giorgos Tavantzopoulos",
+            "email": "g.tavantzopoulos@gmail.com",
+            "homepage":"http://code-junkie.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "yiisoft/yii": "1.1.*",
+        "bshaffer/oauth2-server-php": "dev-master",
+        "yiiext/migrate-command": "dev-master"
+    }
+}
