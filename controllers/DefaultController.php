@@ -1,10 +1,11 @@
 <?php
-
-class DefaultController extends Controller {
-    
+/**
+ * @param Oauth2Module $module
+ */
+class DefaultController extends Controller
+{
     public function actionIndex()
     {
-        CVarDumper::dump($this->module->server, 3, 1);
+        $_s = $this->module->server;    
     }
-
 }

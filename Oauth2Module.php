@@ -24,7 +24,8 @@ class Oauth2Module extends CWebModule {
         'options'=>array()
     );
 
-    protected $_server = null;
+    protected $_server  = null;
+    protected $_storageObj = null;
 
     public function init()
     {
@@ -42,7 +43,7 @@ class Oauth2Module extends CWebModule {
     public function getServer($refresh=true)
     {
         if ($this->_server===null || $refresh) {
-            $storage = $this->getStorage();
+            $storage = $this->getStorage($refresh);
             $config = $this->_serverOptions;
             $this->_server = new OAuth2_Server($storage, $config);
         }
@@ -62,9 +63,13 @@ class Oauth2Module extends CWebModule {
         return $this;
     }
 
-    public function getStorage()
+    public function getStorage($refresh=false)
     {
-        return Yii::createComponent($this->_storage)->oauth2Storage;
+        if ($this->_storageObj === null || $refresh) {
+            $this->_storageObj = Yii::createComponent($this->_storage)->oauth2Storage;   
+        }
+        
+        return $this->_storageObj;
     }
 
     /**
