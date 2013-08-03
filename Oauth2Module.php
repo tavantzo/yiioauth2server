@@ -42,8 +42,7 @@ class Oauth2Module extends CWebModule {
     public function getServer($refresh=true)
     {
         if ($this->_server===null || $refresh) {
-            $pdoInstance = Yii::app()->getComponent($this->dbConnectionId)->pdoInstance;
-            $storage = $this->storage;
+            $storage = $this->getStorage();
             $config = $this->_serverOptions;
             $this->_server = new OAuth2_Server($storage, $config);
         }
