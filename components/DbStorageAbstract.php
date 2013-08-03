@@ -37,7 +37,10 @@ abstract class DbStorageAbstract extends CComponent
      */
     public function getOauth2Storage()
     {
-        // Crate and return the Oauth2_Storage object
-        return new {$this->storageClass()}($this->getConfig(), $this->options);
+        $className = $this->storageClass();
+        // Create and return the Oauth2_Storage object
+        $storage = new $className($this->getConfig(), $this->options);
+        CVarDumper::dump($storage, 10, 1);
+        return $storage;
     }
 }

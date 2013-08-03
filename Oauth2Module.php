@@ -47,7 +47,7 @@ class Oauth2Module extends CWebModule {
             $this->_server = new OAuth2_Server($storage, $config);
         }
 
-        return $thus->_server;
+        return $this->_server;
     }
 
     public function setServerOptions($options)

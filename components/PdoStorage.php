@@ -32,7 +32,7 @@ class PdoStorage extends DbStorageAbstract {
     {
         if ($this->dbConnectionId !== null) {
             // Just return the PDO instance
-            return Yii::app()->getComponent($this->db)->pdoInstance;
+            return Yii::app()->getComponent($this->dbConnectionId)->pdoInstance;
         }
 
         // Return the connection configuration;
