@@ -4,8 +4,10 @@
  */
 class DefaultController extends Controller
 {
-    public function actionIndex()
+    public function actionToken()
     {
-        $_s = $this->module->server;    
+        $this->module->server->addGrantType(new OAuth2_GrantType_ClientCredentials($this->module->storage));
+        $this->module->server->handleTokenRequest(OAuth2_Request::createFromGlobals(), new OAuth2_Response())
+            ->send();
     }
 }
