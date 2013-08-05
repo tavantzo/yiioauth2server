@@ -2,6 +2,10 @@
 
 class Oauth2Module extends CWebModule {
 
+    public $authorizeView = 'authorize_form';
+    public $controllerNamspace = 'codejunkienet';
+    public $defaultController = 'server';
+
     /**
      * The component Identifier for the web user.
      * @stirng
